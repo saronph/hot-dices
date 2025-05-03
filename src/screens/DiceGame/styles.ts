@@ -3,17 +3,18 @@ import { StyleSheet } from 'react-native';
 export const DiceGameStyles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 10,
+    paddingHorizontal: 24,
+    paddingTop: 48,
   },
   header: {
-    position: 'absolute',
-    top: 40,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
     width: '100%',
-    paddingHorizontal: 20,
+    gap: 16,
   },
   toggleContainer: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -58,10 +59,17 @@ export const DiceGameStyles = StyleSheet.create({
     transform: [{ translateX: 20 }],
   },
   diceContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    gap: 48,
+  },
+  diceAlign: {
     flexDirection: 'row',
     justifyContent: 'center',
-    width: '100%',
-    marginBottom: 40,
+    alignItems: 'center',
     gap: 40,
   },
   dice: {
