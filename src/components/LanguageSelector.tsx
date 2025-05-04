@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, StyleSheet, Modal, View, Dimensions } from 'react-native';
+import { TouchableOpacity, StyleSheet, Modal, View, Dimensions, Text } from 'react-native';
 import CountryFlag from 'react-native-country-flag';
 import { useTranslation } from 'react-i18next';
 
 const LanguageSelector = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const [modalVisible, setModalVisible] = useState(false);
 
   const languages = [
@@ -49,6 +49,7 @@ const LanguageSelector = () => {
           size={30}
           style={styles.flag}
         />
+        <Text style={styles.label}>{t('language')}</Text>
       </TouchableOpacity>
 
       <Modal
@@ -87,21 +88,21 @@ const LanguageSelector = () => {
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: 'center',
+    justifyContent: 'center',
     padding: 8,
-    borderRadius: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-    marginLeft: 10,
+    width: '100%',
+    height: '100%',
   },
   flag: {
     borderRadius: 5,
+  },
+  label: {
+    color: '#ffffff',
+    fontSize: 12,
+    textAlign: 'center',
+    flexWrap: 'wrap',
+    maxWidth: '100%',
   },
   modalOverlay: {
     flex: 1,

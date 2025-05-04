@@ -5,6 +5,8 @@ import {
   TouchableOpacity,
   Animated,
   Easing,
+  Share,
+  Linking,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useTranslation } from 'react-i18next';
@@ -164,6 +166,25 @@ const DiceGame = () => {
     setNoRepeat(!noRepeat);
   };
 
+  const handleShare = async () => {
+    try {
+      await Share.share({
+        message: 'https://play.google.com/store/apps/details?id=com.hotdices.app',
+        title: t('shareApp'),
+      });
+    } catch (error) {
+      console.error('Error sharing:', error);
+    }
+  };
+
+  const handleRate = async () => {
+    try {
+      await Linking.openURL('https://play.google.com/store/apps/details?id=com.hotdices.app');
+    } catch (error) {
+      console.error('Error opening store:', error);
+    }
+  };
+
   const spin1 = spinValue1.interpolate({
     inputRange: [0, 1],
     outputRange: ['0deg', '360deg'],
@@ -189,93 +210,103 @@ const DiceGame = () => {
       colors={['#1a0000', '#330000', '#1a0000']}
       style={styles.container}
     >
-
       <View style={styles.header}>
-        <TouchableOpacity onPress={toggleNoRepeat} style={styles.toggleContainer}>
-          <Text style={styles.toggleLabel}>{noRepeat ? t('noRepeat') : t('repeat')}</Text>
-          <TouchableOpacity
-            style={[styles.toggleSwitch, noRepeat && styles.toggleSwitchActive]}
-            onPress={toggleNoRepeat}
-          >
-            <Animated.View
-              style={[
-                styles.toggleKnob,
-                noRepeat && styles.toggleKnobActive,
-              ]}
-            />
-          </TouchableOpacity>
+        <TouchableOpacity onPress={toggleNoRepeat} style={styles.headerButton}>
+          <View style={styles.toggleContainer}>
+            <View
+              style={[styles.toggleSwitch, noRepeat && styles.toggleSwitchActive]}
+            >
+              <Animated.View
+                style={[
+                  styles.toggleKnob,
+                  noRepeat && styles.toggleKnobActive,
+                ]}
+              />
+            </View>
+
+            <Text style={styles.toggleLabel}>{noRepeat ? t('noRepeat') : t('repeat')}</Text>
+          </View>
         </TouchableOpacity>
 
-        <LanguageSelector />
+        <TouchableOpacity onPress={handleShare} style={styles.headerButton}>
+          <Text style={styles.headerButtonText}>📤</Text>
+          <Text style={styles.headerButtonLabel}>{t('shareApp')}</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={handleRate} style={styles.headerButton}>
+          <Text style={styles.headerButtonText}>⭐</Text>
+          <Text style={styles.headerButtonLabel}>{t('rateApp')}</Text>
+        </TouchableOpacity>
+
+        <View style={styles.headerButtonFlag}>
+          <LanguageSelector />
+        </View>
       </View>
 
       <View style={styles.diceContainer}>
         <View style={styles.diceAlign}>
-
-        <Animated.View
-          style={[
-            styles.dice,
-            {
-              transform: [
-                { rotate: spin1 },
-                { translateY: bounce1 },
-                { scale: scaleValue },
-              ],
-            },
-          ]}
-        >
-          <LinearGradient
-            colors={['#ffffff', '#fff0f0']}
-            style={styles.diceFace}
+          <Animated.View
+            style={[
+              styles.dice,
+              {
+                transform: [
+                  { rotate: spin1 },
+                  { translateY: bounce1 },
+                  { scale: scaleValue },
+                ],
+              },
+            ]}
           >
-            <Text style={styles.diceText}>
-              {isRolling ? '?' : currentTask}
-            </Text>
-          </LinearGradient>
-        </Animated.View>
+            <LinearGradient
+              colors={['#ffffff', '#fff0f0']}
+              style={styles.diceFace}
+            >
+              <Text style={styles.diceText}>
+                {isRolling ? '?' : currentTask}
+              </Text>
+            </LinearGradient>
+          </Animated.View>
 
-        <Animated.View
-          style={[
-            styles.dice,
-            {
-              transform: [
-                { rotate: spin2 },
-                { translateY: bounce2 },
-                { scale: scaleValue },
-              ],
-            },
-          ]}
-        >
-          <LinearGradient
-            colors={['#ffffff', '#fff0f0']}
-            style={styles.diceFace}
+          <Animated.View
+            style={[
+              styles.dice,
+              {
+                transform: [
+                  { rotate: spin2 },
+                  { translateY: bounce2 },
+                  { scale: scaleValue },
+                ],
+              },
+            ]}
           >
-            <Text style={styles.diceText}>
-              {isRolling ? '?' :currentLocal}
-            </Text>
-          </LinearGradient>
-        </Animated.View>
+            <LinearGradient
+              colors={['#ffffff', '#fff0f0']}
+              style={styles.diceFace}
+            >
+              <Text style={styles.diceText}>
+                {isRolling ? '?' : currentLocal}
+              </Text>
+            </LinearGradient>
+          </Animated.View>
         </View>
 
         <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={[styles.button, isRolling && styles.buttonDisabled]}
-          onPress={handleRoll}
-          disabled={isRolling}
-        >
-          <LinearGradient
-            colors={['#ff0000', '#cc0000']}
-            style={styles.buttonGradient}
+          <TouchableOpacity
+            style={[styles.button, isRolling && styles.buttonDisabled]}
+            onPress={handleRoll}
+            disabled={isRolling}
           >
-            <Text style={styles.buttonText}>
-              {isRolling ? t('rolling') : t('roll')}
-            </Text>
-          </LinearGradient>
-        </TouchableOpacity>
+            <LinearGradient
+              colors={['#ff0000', '#cc0000']}
+              style={styles.buttonGradient}
+            >
+              <Text style={styles.buttonText}>
+                {isRolling ? t('rolling') : t('roll')}
+              </Text>
+            </LinearGradient>
+          </TouchableOpacity>
+        </View>
       </View>
-      </View>
-
-      
     </LinearGradient>
   );
 };

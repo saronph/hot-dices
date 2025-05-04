@@ -19,7 +19,9 @@
     "react": "19.0.0",
     "react-i18next": "^15.5.1",
     "react-native": "0.79.2",
-    "react-native-country-flag": "^2.0.2"
+    "react-native-country-flag": "^2.0.2",
+    "expo-sharing": "~13.1.5",
+    "expo-clipboard": "~7.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

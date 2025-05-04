@@ -5,6 +5,9 @@ export const phrases = {
       rolling: 'Rolling...',
       repeat: 'Repeat',
       noRepeat: 'No Repeat',
+      shareApp: 'Share',
+      rateApp: 'Rate App',
+      language: 'Language',
       tasks: [
         'Kiss or pinch',
         'Hug or rub',
@@ -29,6 +32,9 @@ export const phrases = {
       rolling: 'Rolando...',
       repeat: 'Repetir',
       noRepeat: 'Não Repetir',
+      shareApp: 'Compartilhar',
+      rateApp: 'Avaliar',
+      language: 'Idioma',
       tasks: [
         'Beijar ou beliscar',
         'Abraçar ou se esfregar',
@@ -53,6 +59,9 @@ export const phrases = {
       rolling: 'Lanzando...',
       repeat: 'Repetir',
       noRepeat: 'No Repetir',
+      shareApp: 'Compartir',
+      rateApp: 'Calificar',
+      language: 'Idioma',
       tasks: [
         'Besos o pellizcos',
         'Abrazos o frotar',
@@ -77,6 +86,9 @@ export const phrases = {
       rolling: '滚动中...',
       repeat: '重复',
       noRepeat: '不重复',
+      shareApp: '分享',
+      rateApp: '评分',
+      language: '语言',
       tasks: [
         '亲吻或捏',
         '拥抱或摩擦',
@@ -101,6 +113,9 @@ export const phrases = {
       rolling: 'Würfeln...',
       repeat: 'Wiederholen',
       noRepeat: 'Nicht Wiederholen',
+      shareApp: 'Teilen',
+      rateApp: 'Bewerten',
+      language: 'Sprache',
       tasks: [
         'Küssen oder kneifen',
         'Umarmen oder reiben',
@@ -125,6 +140,9 @@ export const phrases = {
       rolling: 'फेंक रहा है...',
       repeat: 'दोहराएं',
       noRepeat: 'दोहराएं नहीं',
+      shareApp: 'शेयर',
+      rateApp: 'रेट करें',
+      language: 'भाषा',
       tasks: [
         'चुंबन या चुटकी',
         'गले लगाना या रगड़ना',
