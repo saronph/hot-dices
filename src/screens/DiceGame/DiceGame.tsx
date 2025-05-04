@@ -229,7 +229,7 @@ const DiceGame = () => {
             style={styles.diceFace}
           >
             <Text style={styles.diceText}>
-              {currentTask}
+              {isRolling ? '?' : currentTask}
             </Text>
           </LinearGradient>
         </Animated.View>
@@ -251,7 +251,7 @@ const DiceGame = () => {
             style={styles.diceFace}
           >
             <Text style={styles.diceText}>
-              {currentLocal}
+              {isRolling ? '?' :currentLocal}
             </Text>
           </LinearGradient>
         </Animated.View>
