@@ -20,10 +20,16 @@
         "foregroundImage": "./assets/logo.png",
         "backgroundColor": "#FF8488"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.saronph.hotdices"
     },
     "web": {
       "favicon": "./assets/logo.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "8a2ec660-d389-48b4-8a4f-772228b0cd29"
+      }
     }
   }
 }
