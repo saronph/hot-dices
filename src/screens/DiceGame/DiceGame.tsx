@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from "react";
 import {
   View,
   Text,
@@ -7,22 +7,24 @@ import {
   Easing,
   Share,
   Linking,
-} from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { useTranslation } from 'react-i18next';
-import { DiceGameStyles as styles } from './styles';
-import LanguageSelector from '../../components/LanguageSelector';
+} from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import { useTranslation } from "react-i18next";
+import { DiceGameStyles as styles } from "./styles";
+import LanguageSelector from "../../components/LanguageSelector";
 
 const DiceGame = () => {
   const { t, i18n } = useTranslation();
   const [isRolling, setIsRolling] = useState(false);
-  const [result, setResult] = useState<{ task: string; local: string } | null>(null);
-  const [currentTask, setCurrentTask] = useState(t('tasks.0'));
-  const [currentLocal, setCurrentLocal] = useState(t('locations.0'));
+  const [result, setResult] = useState<{ task: string; local: string } | null>(
+    null
+  );
+  const [currentTask, setCurrentTask] = useState(t("tasks.0"));
+  const [currentLocal, setCurrentLocal] = useState(t("locations.0"));
   const [noRepeat, setNoRepeat] = useState(false);
   const [usedTasks, setUsedTasks] = useState<string[]>([]);
   const [usedLocals, setUsedLocals] = useState<string[]>([]);
-  
+
   const spinValue1 = useRef(new Animated.Value(0)).current;
   const spinValue2 = useRef(new Animated.Value(0)).current;
   const bounceValue1 = useRef(new Animated.Value(0)).current;
@@ -41,11 +43,13 @@ const DiceGame = () => {
   useEffect(() => {
     const tasks = Array.from({ length: 6 }, (_, i) => t(`tasks.${i}`));
     const locations = Array.from({ length: 6 }, (_, i) => t(`locations.${i}`));
-    
+
     if (result) {
-      const taskIndex = tasks.findIndex(task => task === currentTask);
-      const localIndex = locations.findIndex(location => location === currentLocal);
-      
+      const taskIndex = tasks.findIndex((task) => task === currentTask);
+      const localIndex = locations.findIndex(
+        (location) => location === currentLocal
+      );
+
       setCurrentTask(tasks[taskIndex >= 0 ? taskIndex : 0]);
       setCurrentLocal(locations[localIndex >= 0 ? localIndex : 0]);
     } else {
@@ -59,12 +63,12 @@ const DiceGame = () => {
       return Math.floor(Math.random() * array.length);
     }
 
-    const availableItems = array.filter(item => !usedItems.includes(item));
-    
+    const availableItems = array.filter((item) => !usedItems.includes(item));
+
     if (availableItems.length === 0) {
       return -1; // Todos os itens já foram usados
     }
-    
+
     const randomIndex = Math.floor(Math.random() * availableItems.length);
     return array.indexOf(availableItems[randomIndex]);
   };
@@ -126,10 +130,12 @@ const DiceGame = () => {
       ]),
     ]).start(() => {
       setIsRolling(false);
-      
+
       const tasks = Array.from({ length: 6 }, (_, i) => t(`tasks.${i}`));
-      const locations = Array.from({ length: 6 }, (_, i) => t(`locations.${i}`));
-      
+      const locations = Array.from({ length: 6 }, (_, i) =>
+        t(`locations.${i}`)
+      );
+
       const taskIndex = getRandomIndex(tasks, usedTasks);
       const localIndex = getRandomIndex(locations, usedLocals);
 
@@ -146,12 +152,12 @@ const DiceGame = () => {
       } else {
         const newTask = tasks[taskIndex];
         const newLocal = locations[localIndex];
-        
+
         if (noRepeat) {
-          setUsedTasks(prev => [...prev, newTask]);
-          setUsedLocals(prev => [...prev, newLocal]);
+          setUsedTasks((prev) => [...prev, newTask]);
+          setUsedLocals((prev) => [...prev, newLocal]);
         }
-        
+
         setCurrentTask(newTask);
         setCurrentLocal(newLocal);
         setResult({
@@ -169,30 +175,33 @@ const DiceGame = () => {
   const handleShare = async () => {
     try {
       await Share.share({
-        message: 'https://play.google.com/store/apps/details?id=com.hotdices.app',
-        title: t('shareApp'),
+        message:
+          "https://play.google.com/store/apps/details?id=com.techneon.hotdices",
+        title: t("shareApp"),
       });
     } catch (error) {
-      console.error('Error sharing:', error);
+      console.error("Error sharing:", error);
     }
   };
 
   const handleRate = async () => {
     try {
-      await Linking.openURL('https://play.google.com/store/apps/details?id=com.hotdices.app');
+      await Linking.openURL(
+        "https://play.google.com/store/apps/details?id=com.hotdices.app"
+      );
     } catch (error) {
-      console.error('Error opening store:', error);
+      console.error("Error opening store:", error);
     }
   };
 
   const spin1 = spinValue1.interpolate({
     inputRange: [0, 1],
-    outputRange: ['0deg', '360deg'],
+    outputRange: ["0deg", "360deg"],
   });
 
   const spin2 = spinValue2.interpolate({
     inputRange: [0, 1],
-    outputRange: ['0deg', '360deg'],
+    outputRange: ["0deg", "360deg"],
   });
 
   const bounce1 = bounceValue1.interpolate({
@@ -207,35 +216,41 @@ const DiceGame = () => {
 
   return (
     <LinearGradient
-      colors={['#1a0000', '#330000', '#1a0000']}
+      colors={["#1a0000", "#330000", "#1a0000"]}
       style={styles.container}
     >
       <View style={styles.header}>
         <TouchableOpacity onPress={toggleNoRepeat} style={styles.headerButton}>
           <View style={styles.toggleContainer}>
             <View
-              style={[styles.toggleSwitch, noRepeat && styles.toggleSwitchActive]}
+              style={[
+                styles.toggleSwitch,
+                noRepeat && styles.toggleSwitchActive,
+              ]}
             >
               <Animated.View
-                style={[
-                  styles.toggleKnob,
-                  noRepeat && styles.toggleKnobActive,
-                ]}
+                style={[styles.toggleKnob, noRepeat && styles.toggleKnobActive]}
               />
             </View>
 
-            <Text style={styles.toggleLabel}>{noRepeat ? t('noRepeat') : t('repeat')}</Text>
+            <Text style={styles.toggleLabel}>
+              {noRepeat ? t("noRepeat") : t("repeat")}
+            </Text>
           </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={handleShare} style={styles.headerButton}>
-          <Text style={styles.headerButtonText}>📤</Text>
-          <Text style={styles.headerButtonLabel}>{t('shareApp')}</Text>
+          <View style={styles.headerButtonContent}>
+            <Text style={styles.headerButtonText}>📤</Text>
+            <Text style={styles.headerButtonLabel}>{t("shareApp")}</Text>
+          </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={handleRate} style={styles.headerButton}>
-          <Text style={styles.headerButtonText}>⭐</Text>
-          <Text style={styles.headerButtonLabel}>{t('rateApp')}</Text>
+          <View style={styles.headerButtonContent}>
+            <Text style={styles.headerButtonText}>⭐</Text>
+            <Text style={styles.headerButtonLabel}>{t("rateApp")}</Text>
+          </View>
         </TouchableOpacity>
 
         <View style={styles.headerButtonFlag}>
@@ -258,11 +273,11 @@ const DiceGame = () => {
             ]}
           >
             <LinearGradient
-              colors={['#ffffff', '#fff0f0']}
+              colors={["#ffffff", "#fff0f0"]}
               style={styles.diceFace}
             >
               <Text style={styles.diceText}>
-                {isRolling ? '?' : currentTask}
+                {isRolling ? "?" : currentTask}
               </Text>
             </LinearGradient>
           </Animated.View>
@@ -280,11 +295,11 @@ const DiceGame = () => {
             ]}
           >
             <LinearGradient
-              colors={['#ffffff', '#fff0f0']}
+              colors={["#ffffff", "#fff0f0"]}
               style={styles.diceFace}
             >
               <Text style={styles.diceText}>
-                {isRolling ? '?' : currentLocal}
+                {isRolling ? "?" : currentLocal}
               </Text>
             </LinearGradient>
           </Animated.View>
@@ -297,11 +312,11 @@ const DiceGame = () => {
             disabled={isRolling}
           >
             <LinearGradient
-              colors={['#ff0000', '#cc0000']}
+              colors={["#ff0000", "#cc0000"]}
               style={styles.buttonGradient}
             >
               <Text style={styles.buttonText}>
-                {isRolling ? t('rolling') : t('roll')}
+                {isRolling ? t("rolling") : t("roll")}
               </Text>
             </LinearGradient>
           </TouchableOpacity>
@@ -311,4 +326,4 @@ const DiceGame = () => {
   );
 };
 
-export default DiceGame; 
+export default DiceGame;

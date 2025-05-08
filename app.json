@@ -21,7 +21,7 @@
         "backgroundColor": "#FF8488"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.saronph.hotdices"
+      "package": "com.techneon.hotdices"
     },
     "web": {
       "favicon": "./assets/logo.png"

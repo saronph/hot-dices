@@ -1,35 +1,42 @@
-import React, { useState } from 'react';
-import { TouchableOpacity, StyleSheet, Modal, View, Dimensions, Text } from 'react-native';
-import CountryFlag from 'react-native-country-flag';
-import { useTranslation } from 'react-i18next';
+import React, { useState } from "react";
+import {
+  TouchableOpacity,
+  StyleSheet,
+  Modal,
+  View,
+  Dimensions,
+  Text,
+} from "react-native";
+import CountryFlag from "react-native-country-flag";
+import { useTranslation } from "react-i18next";
 
 const LanguageSelector = () => {
   const { i18n, t } = useTranslation();
   const [modalVisible, setModalVisible] = useState(false);
 
   const languages = [
-    { code: 'en', flag: 'us' },
-    { code: 'pt', flag: 'br' },
-    { code: 'es', flag: 'es' },
-    { code: 'zh', flag: 'cn' },
-    { code: 'de', flag: 'de' },
-    { code: 'hi', flag: 'in' },
+    { code: "en", flag: "us" },
+    { code: "pt", flag: "br" },
+    { code: "es", flag: "es" },
+    { code: "zh", flag: "cn" },
+    { code: "de", flag: "de" },
+    { code: "hi", flag: "in" },
   ];
 
   const getFlagCode = () => {
     switch (i18n.language) {
-      case 'pt':
-        return 'br';
-      case 'es':
-        return 'es';
-      case 'zh':
-        return 'cn';
-      case 'de':
-        return 'de';
-      case 'hi':
-        return 'in';
+      case "pt":
+        return "br";
+      case "es":
+        return "es";
+      case "zh":
+        return "cn";
+      case "de":
+        return "de";
+      case "hi":
+        return "in";
       default:
-        return 'us';
+        return "us";
     }
   };
 
@@ -44,12 +51,10 @@ const LanguageSelector = () => {
         style={styles.container}
         onPress={() => setModalVisible(true)}
       >
-        <CountryFlag
-          isoCode={getFlagCode()}
-          size={30}
-          style={styles.flag}
-        />
-        <Text style={styles.label}>{t('language')}</Text>
+        <View style={styles.flagContainer}>
+          <CountryFlag isoCode={getFlagCode()} size={26} style={styles.flag} />
+          <Text style={styles.label}>{t("language")}</Text>
+        </View>
       </TouchableOpacity>
 
       <Modal
@@ -58,9 +63,9 @@ const LanguageSelector = () => {
         animationType="none"
         onRequestClose={() => setModalVisible(false)}
       >
-        <TouchableOpacity 
-          style={styles.modalOverlay} 
-          activeOpacity={1} 
+        <TouchableOpacity
+          style={styles.modalOverlay}
+          activeOpacity={1}
           onPress={() => setModalVisible(false)}
         >
           <View style={styles.modalContent}>
@@ -88,35 +93,39 @@ const LanguageSelector = () => {
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 8,
-    width: '100%',
-    height: '100%',
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    height: "100%",
+  },
+  flagContainer: {
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
+    height: 44,
   },
   flag: {
     borderRadius: 5,
   },
   label: {
-    color: '#ffffff',
+    color: "#ffffff",
     fontSize: 12,
-    textAlign: 'center',
-    flexWrap: 'wrap',
-    maxWidth: '100%',
+    textAlign: "center",
+    lineHeight: 12,
   },
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    justifyContent: "center",
+    alignItems: "center",
   },
   modalContent: {
-    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+    backgroundColor: "rgba(255, 255, 255, 0.95)",
     borderRadius: 20,
     padding: 20,
-    width: Dimensions.get('window').width * 0.8,
+    width: Dimensions.get("window").width * 0.8,
     maxWidth: 400,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -126,16 +135,16 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   flagsContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
     gap: 15,
   },
   flagButton: {
     padding: 10,
     borderRadius: 10,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
-    shadowColor: '#000',
+    backgroundColor: "rgba(255, 255, 255, 0.8)",
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 1,
@@ -149,4 +158,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LanguageSelector; 
+export default LanguageSelector;
