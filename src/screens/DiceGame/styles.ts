@@ -15,13 +15,6 @@ export const DiceGameStyles = StyleSheet.create({
     borderRadius: 30,
     padding: 4,
   },
-  toggleContainer: {
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingTop: 2,
-    height: 44,
-    width: "100%",
-  },
   headerButton: {
     flex: 1,
     alignItems: "center",
@@ -60,36 +53,7 @@ export const DiceGameStyles = StyleSheet.create({
     fontSize: 12,
     textAlign: "center",
     flexWrap: "wrap",
-    maxWidth: 68,
-  },
-  toggleSwitch: {
-    width: 36,
-    height: 20,
-    backgroundColor: "rgba(255, 255, 255, 0.2)",
-    borderRadius: 10,
-    padding: 2,
-    justifyContent: "center",
-  },
-  toggleSwitchActive: {
-    backgroundColor: "rgba(255, 0, 0, 0.3)",
-  },
-  toggleKnob: {
-    width: 16,
-    height: 16,
-    backgroundColor: "#ffffff",
-    borderRadius: 8,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
-    elevation: 2,
-  },
-  toggleKnobActive: {
-    backgroundColor: "#ff0000",
-    transform: [{ translateX: 16 }],
+    maxWidth: "100%",
   },
   diceContainer: {
     flex: 1,
@@ -98,6 +62,7 @@ export const DiceGameStyles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
     gap: 48,
+    paddingBottom: 100,
   },
   diceAlign: {
     flexDirection: "row",

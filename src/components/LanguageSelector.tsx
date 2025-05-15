@@ -52,7 +52,7 @@ const LanguageSelector = () => {
         onPress={() => setModalVisible(true)}
       >
         <View style={styles.flagContainer}>
-          <CountryFlag isoCode={getFlagCode()} size={26} style={styles.flag} />
+          <CountryFlag isoCode={getFlagCode()} size={24} style={styles.flag} />
           <Text style={styles.label}>{t("language")}</Text>
         </View>
       </TouchableOpacity>
@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     fontSize: 12,
     textAlign: "center",
-    lineHeight: 12,
   },
   modalOverlay: {
     flex: 1,
@@ -155,6 +154,7 @@ const styles = StyleSheet.create({
   },
   modalFlag: {
     borderRadius: 5,
+    color: "rgba(255, 255, 255, 0.2)",
   },
 });
 

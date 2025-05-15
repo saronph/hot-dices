@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useTranslation } from "react-i18next";
+import { FontAwesome6, Feather } from "@expo/vector-icons";
 import { DiceGameStyles as styles } from "./styles";
 import LanguageSelector from "../../components/LanguageSelector";
 
@@ -221,18 +222,12 @@ const DiceGame = () => {
     >
       <View style={styles.header}>
         <TouchableOpacity onPress={toggleNoRepeat} style={styles.headerButton}>
-          <View style={styles.toggleContainer}>
-            <View
-              style={[
-                styles.toggleSwitch,
-                noRepeat && styles.toggleSwitchActive,
-              ]}
-            >
-              <Animated.View
-                style={[styles.toggleKnob, noRepeat && styles.toggleKnobActive]}
-              />
-            </View>
-
+          <View style={styles.headerButtonContent}>
+            <FontAwesome6
+              name={noRepeat ? "toggle-on" : "toggle-off"}
+              size={24}
+              color={noRepeat ? "#ff0000" : "rgba(255, 255, 255, 0.2)"}
+            />
             <Text style={styles.toggleLabel}>
               {noRepeat ? t("noRepeat") : t("repeat")}
             </Text>
@@ -241,14 +236,22 @@ const DiceGame = () => {
 
         <TouchableOpacity onPress={handleShare} style={styles.headerButton}>
           <View style={styles.headerButtonContent}>
-            <Text style={styles.headerButtonText}>📤</Text>
+            <Feather
+              name="share-2"
+              size={24}
+              color="rgba(255, 255, 255, 0.2)"
+            />
             <Text style={styles.headerButtonLabel}>{t("shareApp")}</Text>
           </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={handleRate} style={styles.headerButton}>
           <View style={styles.headerButtonContent}>
-            <Text style={styles.headerButtonText}>⭐</Text>
+            <FontAwesome6
+              name="star"
+              size={24}
+              color="rgba(255, 255, 255, 0.2)"
+            />
             <Text style={styles.headerButtonLabel}>{t("rateApp")}</Text>
           </View>
         </TouchableOpacity>
