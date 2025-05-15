@@ -1,18 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Animated,
-  Easing,
-  Share,
-  Linking,
-} from "react-native";
+import { View, Text, TouchableOpacity, Animated, Easing } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useTranslation } from "react-i18next";
 import { FontAwesome6, Feather } from "@expo/vector-icons";
+
 import { DiceGameStyles as styles } from "./styles";
 import LanguageSelector from "../../components/LanguageSelector";
+import { handleRate, handleShare } from "./actions";
 
 const DiceGame = () => {
   const { t, i18n } = useTranslation();
@@ -31,33 +25,6 @@ const DiceGame = () => {
   const bounceValue1 = useRef(new Animated.Value(0)).current;
   const bounceValue2 = useRef(new Animated.Value(0)).current;
   const scaleValue = useRef(new Animated.Value(1)).current;
-
-  // Reset used items when noRepeat is toggled
-  useEffect(() => {
-    if (noRepeat) {
-      setUsedTasks([]);
-      setUsedLocals([]);
-    }
-  }, [noRepeat]);
-
-  // Update texts when language changes
-  useEffect(() => {
-    const tasks = Array.from({ length: 6 }, (_, i) => t(`tasks.${i}`));
-    const locations = Array.from({ length: 6 }, (_, i) => t(`locations.${i}`));
-
-    if (result) {
-      const taskIndex = tasks.findIndex((task) => task === currentTask);
-      const localIndex = locations.findIndex(
-        (location) => location === currentLocal
-      );
-
-      setCurrentTask(tasks[taskIndex >= 0 ? taskIndex : 0]);
-      setCurrentLocal(locations[localIndex >= 0 ? localIndex : 0]);
-    } else {
-      setCurrentTask(tasks[0]);
-      setCurrentLocal(locations[0]);
-    }
-  }, [i18n.language]);
 
   const getRandomIndex = (array: string[], usedItems: string[]) => {
     if (!noRepeat) {
@@ -173,28 +140,6 @@ const DiceGame = () => {
     setNoRepeat(!noRepeat);
   };
 
-  const handleShare = async () => {
-    try {
-      await Share.share({
-        message:
-          "https://play.google.com/store/apps/details?id=com.techneon.hotdices",
-        title: t("shareApp"),
-      });
-    } catch (error) {
-      console.error("Error sharing:", error);
-    }
-  };
-
-  const handleRate = async () => {
-    try {
-      await Linking.openURL(
-        "https://play.google.com/store/apps/details?id=com.hotdices.app"
-      );
-    } catch (error) {
-      console.error("Error opening store:", error);
-    }
-  };
-
   const spin1 = spinValue1.interpolate({
     inputRange: [0, 1],
     outputRange: ["0deg", "360deg"],
@@ -214,6 +159,33 @@ const DiceGame = () => {
     inputRange: [0, 1],
     outputRange: [0, -20],
   });
+
+  // Reset used items when noRepeat is toggled
+  useEffect(() => {
+    if (noRepeat) {
+      setUsedTasks([]);
+      setUsedLocals([]);
+    }
+  }, [noRepeat]);
+
+  // Update texts when language changes
+  useEffect(() => {
+    const tasks = Array.from({ length: 6 }, (_, i) => t(`tasks.${i}`));
+    const locations = Array.from({ length: 6 }, (_, i) => t(`locations.${i}`));
+
+    if (result) {
+      const taskIndex = tasks.findIndex((task) => task === currentTask);
+      const localIndex = locations.findIndex(
+        (location) => location === currentLocal
+      );
+
+      setCurrentTask(tasks[taskIndex >= 0 ? taskIndex : 0]);
+      setCurrentLocal(locations[localIndex >= 0 ? localIndex : 0]);
+    } else {
+      setCurrentTask(tasks[0]);
+      setCurrentLocal(locations[0]);
+    }
+  }, [i18n.language]);
 
   return (
     <LinearGradient
