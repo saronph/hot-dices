@@ -301,4 +301,4 @@ const DiceGame = () => {
   );
 };
 
-export default DiceGame;
+export { DiceGame };

@@ -9,6 +9,7 @@ export const phrases = {
       shareAppMessage: "App to heat up the relationship 🔥",
       rateApp: "Rate App",
       language: "Language",
+      comingSoon: "Coming Soon",
       tasks: [
         "Kiss or pinch",
         "Hug or rub",
@@ -37,6 +38,7 @@ export const phrases = {
       shareAppMessage: "App para esquentar a relação 🔥",
       rateApp: "Avaliar",
       language: "Idioma",
+      comingSoon: "Em Breve",
       tasks: [
         "Beijar ou beliscar",
         "Abraçar ou se esfregar",
@@ -65,6 +67,7 @@ export const phrases = {
       shareAppMessage: "App para calentar la relación 🔥",
       rateApp: "Calificar",
       language: "Idioma",
+      comingSoon: "Próximamente",
       tasks: [
         "Besos o pellizcos",
         "Abrazos o frotar",
@@ -93,6 +96,7 @@ export const phrases = {
       shareAppMessage: "让关系升温的应用 🔥",
       rateApp: "评分",
       language: "语言",
+      comingSoon: "即将推出",
       tasks: [
         "亲吻或捏",
         "拥抱或摩擦",
@@ -114,6 +118,7 @@ export const phrases = {
       shareAppMessage: "App zum Aufheizen der Beziehung 🔥",
       rateApp: "Bewerten",
       language: "Sprache",
+      comingSoon: "Demnächst",
       tasks: [
         "Küssen oder kneifen",
         "Umarmen oder reiben",
@@ -135,6 +140,7 @@ export const phrases = {
       shareAppMessage: "रिश्ते को गर्म करने वाला ऐप 🔥",
       rateApp: "रेट करें",
       language: "भाषा",
+      comingSoon: "जल्द आ रहा है",
       tasks: [
         "चुंबन या चुटकी",
         "गले लगाना या रगड़ना",
