@@ -74,3 +74,5 @@ export const handleShare = async () => {
     console.error("Error sharing:", error);
   }
 };
+
+console.log(PLAY_STORE_URL_SHORT);
