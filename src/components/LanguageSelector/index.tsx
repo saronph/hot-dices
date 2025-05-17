@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import {
-  TouchableOpacity,
-  StyleSheet,
-  Modal,
-  View,
-  Dimensions,
-  Text,
-} from "react-native";
+import { TouchableOpacity, Modal, View, Text } from "react-native";
 import CountryFlag from "react-native-country-flag";
 import { useTranslation } from "react-i18next";
+
+import { LanguageSelectorStyles as styles } from "./styles";
+import { MaterialIcons } from "@expo/vector-icons";
 
 const LanguageSelector = () => {
   const { i18n, t } = useTranslation();
@@ -23,23 +19,6 @@ const LanguageSelector = () => {
     { code: "hi", flag: "in" },
   ];
 
-  const getFlagCode = () => {
-    switch (i18n.language) {
-      case "pt":
-        return "br";
-      case "es":
-        return "es";
-      case "zh":
-        return "cn";
-      case "de":
-        return "de";
-      case "hi":
-        return "in";
-      default:
-        return "us";
-    }
-  };
-
   const handleLanguageSelect = (langCode: string) => {
     i18n.changeLanguage(langCode);
     setModalVisible(false);
@@ -52,7 +31,11 @@ const LanguageSelector = () => {
         onPress={() => setModalVisible(true)}
       >
         <View style={styles.flagContainer}>
-          <CountryFlag isoCode={getFlagCode()} size={24} style={styles.flag} />
+          <MaterialIcons
+            name="g-translate"
+            size={24}
+            color="rgba(255, 255, 255, 0.2)"
+          />
           <Text style={styles.label}>{t("language")}</Text>
         </View>
       </TouchableOpacity>
@@ -60,7 +43,7 @@ const LanguageSelector = () => {
       <Modal
         visible={modalVisible}
         transparent
-        animationType="none"
+        animationType="fade"
         onRequestClose={() => setModalVisible(false)}
       >
         <TouchableOpacity
@@ -90,72 +73,5 @@ const LanguageSelector = () => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100%",
-    height: "100%",
-  },
-  flagContainer: {
-    alignItems: "center",
-    justifyContent: "space-between",
-    width: "100%",
-    height: 44,
-  },
-  flag: {
-    borderRadius: 5,
-  },
-  label: {
-    color: "#ffffff",
-    fontSize: 12,
-    textAlign: "center",
-  },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  modalContent: {
-    backgroundColor: "rgba(255, 255, 255, 0.95)",
-    borderRadius: 20,
-    padding: 20,
-    width: Dimensions.get("window").width * 0.8,
-    maxWidth: 400,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-  },
-  flagsContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    gap: 15,
-  },
-  flagButton: {
-    padding: 10,
-    borderRadius: 10,
-    backgroundColor: "rgba(255, 255, 255, 0.8)",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
-    elevation: 2,
-  },
-  modalFlag: {
-    borderRadius: 5,
-    color: "rgba(255, 255, 255, 0.2)",
-  },
-});
 
 export default LanguageSelector;

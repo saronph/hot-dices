@@ -3,24 +3,12 @@ import { StyleSheet } from "react-native";
 export const DiceGameStyles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 24,
-    paddingTop: 40,
-  },
-  header: {
-    flexDirection: "row",
-    alignItems: "flex-end",
-    justifyContent: "center",
-    width: "100%",
-    backgroundColor: "rgba(255, 255, 255, 0.1)",
-    borderRadius: 30,
-    padding: 4,
   },
   headerButton: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "transparent",
-    minWidth: 70,
     height: 60,
   },
   headerButtonContent: {
@@ -29,26 +17,7 @@ export const DiceGameStyles = StyleSheet.create({
     width: "100%",
     height: 44,
   },
-  headerButtonFlag: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "transparent",
-    minWidth: 70,
-    height: 60,
-  },
-  headerButtonText: {
-    fontSize: 20,
-  },
   headerButtonLabel: {
-    color: "#ffffff",
-    fontSize: 12,
-    textAlign: "center",
-    flexWrap: "wrap",
-    maxWidth: "100%",
-  },
-
-  toggleLabel: {
     color: "#ffffff",
     fontSize: 12,
     textAlign: "center",
@@ -58,11 +27,10 @@ export const DiceGameStyles = StyleSheet.create({
   diceContainer: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "center",
     alignItems: "center",
     width: "100%",
     gap: 48,
-    paddingBottom: 100,
+    paddingTop: "40%",
   },
   diceAlign: {
     flexDirection: "row",

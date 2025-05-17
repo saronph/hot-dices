@@ -8,8 +8,12 @@ export const phrases = {
       shareApp: "Share",
       shareAppMessage: "App to heat up the relationship 🔥",
       rateApp: "Rate App",
-      language: "Language",
+      language: "English",
       comingSoon: "Coming Soon",
+      diceGameDescription:
+        "Roll the dice and discover exciting challenges to spice up your relationship",
+      newFeatureDescription:
+        "New features coming soon to make your moments even more special",
       tasks: [
         "Kiss or pinch",
         "Hug or rub",
@@ -37,8 +41,12 @@ export const phrases = {
       shareApp: "Compartilhar",
       shareAppMessage: "App para esquentar a relação 🔥",
       rateApp: "Avaliar",
-      language: "Idioma",
+      language: "Português",
       comingSoon: "Em Breve",
+      diceGameDescription:
+        "Role os dados e descubra desafios excitantes para esquentar sua relação",
+      newFeatureDescription:
+        "Novas funcionalidades em breve para tornar seus momentos ainda mais especiais",
       tasks: [
         "Beijar ou beliscar",
         "Abraçar ou se esfregar",
@@ -66,8 +74,12 @@ export const phrases = {
       shareApp: "Compartir",
       shareAppMessage: "App para calentar la relación 🔥",
       rateApp: "Calificar",
-      language: "Idioma",
+      language: "Español",
       comingSoon: "Próximamente",
+      diceGameDescription:
+        "Lanza los dados y descubre emocionantes desafíos para calentar tu relación",
+      newFeatureDescription:
+        "Nuevas funciones próximamente para hacer tus momentos aún más especiales",
       tasks: [
         "Besos o pellizcos",
         "Abrazos o frotar",
@@ -95,8 +107,10 @@ export const phrases = {
       shareApp: "分享",
       shareAppMessage: "让关系升温的应用 🔥",
       rateApp: "评分",
-      language: "语言",
+      language: "中文",
       comingSoon: "即将推出",
+      diceGameDescription: "掷骰子，发现令人兴奋的挑战，让您的关系升温",
+      newFeatureDescription: "即将推出新功能，让您的时刻更加特别",
       tasks: [
         "亲吻或捏",
         "拥抱或摩擦",
@@ -117,8 +131,12 @@ export const phrases = {
       shareApp: "Teilen",
       shareAppMessage: "App zum Aufheizen der Beziehung 🔥",
       rateApp: "Bewerten",
-      language: "Sprache",
+      language: "Deutsch",
       comingSoon: "Demnächst",
+      diceGameDescription:
+        "Würfeln Sie und entdecken Sie aufregende Herausforderungen, um Ihre Beziehung zu befeuern",
+      newFeatureDescription:
+        "Neue Funktionen kommen bald, um Ihre Momente noch spezieller zu machen",
       tasks: [
         "Küssen oder kneifen",
         "Umarmen oder reiben",
@@ -139,8 +157,12 @@ export const phrases = {
       shareApp: "शेयर",
       shareAppMessage: "रिश्ते को गर्म करने वाला ऐप 🔥",
       rateApp: "रेट करें",
-      language: "भाषा",
+      language: "हिन्दी",
       comingSoon: "जल्द आ रहा है",
+      diceGameDescription:
+        "पासा फेंकें और अपने रिश्ते को गर्म करने के लिए रोमांचक चुनौतियों की खोज करें",
+      newFeatureDescription:
+        "आपके पलों को और भी खास बनाने के लिए जल्द ही नई सुविधाएं आ रही हैं",
       tasks: [
         "चुंबन या चुटकी",
         "गले लगाना या रगड़ना",
