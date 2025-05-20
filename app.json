@@ -13,7 +13,9 @@
       "backgroundColor": "#FF8488"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.neophi.hotdices",
+      "userTrackingUsageDescription": "This identifier will be used to deliver personalized ads to you."
     },
     "android": {
       "adaptiveIcon": {
@@ -21,7 +23,7 @@
         "backgroundColor": "#FF8488"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.techneon.hotdices"
+      "package": "com.neophi.hotdices"
     },
     "web": {
       "favicon": "./assets/logo.png"
@@ -30,6 +32,38 @@
       "eas": {
         "projectId": "8a2ec660-d389-48b4-8a4f-772228b0cd29"
       }
-    }
+    },
+    "plugins": [
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-3940256099942544~3347511713",
+          "iosAppId": "ca-app-pub-3940256099942544~1458002511",
+          "userTrackingUsageDescription": "This identifier will be used to deliver personalized ads to you.",
+          "skAdNetworkItems": [
+            "cstr6suwn9.skadnetwork",
+            "4fzdc2evr5.skadnetwork",
+            "2fnua5tdw4.skadnetwork",
+            "ydx93a7ass.skadnetwork",
+            "p78axxw29g.skadnetwork",
+            "v72qych5uu.skadnetwork",
+            "ludvb6z3bs.skadnetwork",
+            "cp8zw746q7.skadnetwork",
+            "3sh42y64q3.skadnetwork",
+            "c6k4g5qg8m.skadnetwork",
+            "s39g8k73mm.skadnetwork",
+            "3qy4746246.skadnetwork",
+            "f38h382jlk.skadnetwork",
+            "hs6bdukanm.skadnetwork",
+            "mlmmfzh3r3.skadnetwork",
+            "v4nxqhlyqp.skadnetwork",
+            "wzmmz9fp6w.skadnetwork",
+            "su67r6k2v3.skadnetwork",
+            "yclnxrl5pm.skadnetwork",
+            "t38b2kh725.skadnetwork"
+          ]
+        }
+      ]
+    ]
   }
 }

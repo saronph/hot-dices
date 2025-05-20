@@ -7,6 +7,7 @@ import { RootStackParamList } from "../../navigation";
 import { DashboardStyles as styles } from "./styles";
 import { useTranslation } from "react-i18next";
 import { useFocusEffect } from "@react-navigation/native";
+import { showInterstitialAd } from "../../lib/ads";
 
 type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
@@ -20,15 +21,17 @@ export const Dashboard = () => {
     }, [i18n])
   );
 
+  const handleRollDice = async () => {
+    await showInterstitialAd();
+    navigation.navigate("DiceGame");
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Hot Dices</Text>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate("DiceGame")}
-        >
+        <TouchableOpacity style={styles.button} onPress={handleRollDice}>
           <Text style={styles.buttonText}>{t("roll")}</Text>
           <Text style={styles.buttonDescription}>
             {t("diceGameDescription")}
