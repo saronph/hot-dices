@@ -1,4 +1,6 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+
+const { height } = Dimensions.get("window");
 
 export const DiceGameStyles = StyleSheet.create({
   container: {
@@ -29,8 +31,8 @@ export const DiceGameStyles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     width: "100%",
-    gap: 48,
-    paddingTop: "40%",
+    gap: height * 0.05,
+    paddingTop: height * 0.15,
   },
   diceAlign: {
     flexDirection: "row",

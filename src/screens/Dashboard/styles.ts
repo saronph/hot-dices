@@ -1,28 +1,30 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+
+const { height } = Dimensions.get("window");
 
 export const DashboardStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#1a1a1a",
     alignItems: "center",
-    paddingTop: "40%",
+    paddingTop: height * 0.067,
     paddingHorizontal: 24,
   },
   title: {
     fontSize: 42,
     fontWeight: "bold",
     color: "#ffffff",
-    marginBottom: 60,
+    marginBottom: height * 0.05,
     textAlign: "center",
   },
   buttonContainer: {
     width: "100%",
-    gap: 30,
+    gap: height * 0.033,
   },
   button: {
     backgroundColor: "#ff4081",
-    paddingVertical: 25,
-    paddingHorizontal: 30,
+    paddingVertical: 16,
+    paddingHorizontal: 16,
     borderRadius: 20,
     alignItems: "center",
     justifyContent: "center",
@@ -34,7 +36,7 @@ export const DashboardStyles = StyleSheet.create({
     },
     shadowOpacity: 0.3,
     shadowRadius: 4.65,
-    minHeight: 120,
+    minHeight: height * 0.01,
   },
   comingSoonButton: {
     backgroundColor: "#666666",
