@@ -34,27 +34,20 @@ export const Header = ({ children }: HeaderProps) => {
 
   const handleRate = async () => {
     try {
-      // Verifica se a funcionalidade está disponível na plataforma
       const isAvailable = await StoreReview.isAvailableAsync();
 
       if (isAvailable) {
-        // Verifica se há uma ação de review disponível
         const hasAction = await StoreReview.hasAction();
 
         if (hasAction) {
-          // Solicita a review nativa
           await StoreReview.requestReview();
-
-          // Incrementa o contador de tentativas
           const attempts = await incrementReviewAttempts();
 
-          // Se já tentou 2 vezes, redireciona para a loja
           if (attempts >= 2) {
             const storeUrl = StoreReview.storeUrl() || PLAY_STORE_URL;
             await Linking.openURL(storeUrl);
           }
         } else {
-          // Fallback: abre a loja de aplicativos
           const storeUrl = StoreReview.storeUrl();
 
           if (storeUrl) {
@@ -64,12 +57,10 @@ export const Header = ({ children }: HeaderProps) => {
           }
         }
       } else {
-        // Fallback para dispositivos não suportados
         await Linking.openURL(PLAY_STORE_URL);
       }
     } catch (error) {
       console.error("Erro detalhado ao solicitar review:", error);
-      // Fallback em caso de erro
       try {
         await Linking.openURL(PLAY_STORE_URL);
       } catch (fallbackError) {
