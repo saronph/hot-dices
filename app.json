@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/logo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#FF8488"
+      "backgroundColor": "#7648ff"
     },
     "ios": {
       "supportsTablet": true,
@@ -20,7 +20,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/logo.png",
-        "backgroundColor": "#FF8488"
+        "backgroundColor": "#7648ff"
       },
       "edgeToEdgeEnabled": true,
       "package": "com.neophi.hotdices"

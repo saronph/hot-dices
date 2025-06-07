@@ -21,7 +21,7 @@ export const Dashboard = () => {
     }, [i18n])
   );
 
-  const handleRollDice = async () => {
+  const handleNavigateRollDice = async () => {
     await showInterstitialAd();
     navigation.navigate("DiceGame");
   };
@@ -31,7 +31,10 @@ export const Dashboard = () => {
       <Text style={styles.title}>Hot Dices</Text>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={handleRollDice}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={handleNavigateRollDice}
+        >
           <Text style={styles.buttonText}>{t("roll")}</Text>
           <Text style={styles.buttonDescription}>
             {t("diceGameDescription")}
