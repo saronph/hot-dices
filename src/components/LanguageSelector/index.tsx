@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 
 import { LanguageSelectorStyles as styles } from "./styles";
 import { MaterialIcons } from "@expo/vector-icons";
+import { colors } from "../../styles/default/colors";
 
 const LanguageSelector = () => {
   const { i18n, t } = useTranslation();
@@ -26,15 +27,12 @@ const LanguageSelector = () => {
 
   return (
     <>
-      <TouchableOpacity
-        style={styles.container}
-        onPress={() => setModalVisible(true)}
-      >
+      <TouchableOpacity onPress={() => setModalVisible(true)}>
         <View style={styles.flagContainer}>
           <MaterialIcons
             name="g-translate"
             size={24}
-            color="rgba(255, 255, 255, 0.2)"
+            color={colors["gray-500"]}
           />
           <Text style={styles.label}>{t("language")}</Text>
         </View>

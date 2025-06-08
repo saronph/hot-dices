@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { fontSizes } from "../../styles/default/fontSizes";
 
 export const HeaderStyles = StyleSheet.create({
   header: {
@@ -16,25 +17,9 @@ export const HeaderStyles = StyleSheet.create({
     width: 40,
     height: 60,
   },
-  headerButton: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "transparent",
-    height: 60,
-  },
-  headerButtonContent: {
-    alignItems: "center",
-    justifyContent: "space-between",
-    width: "100%",
-    height: 44,
-  },
-  headerButtonText: {
-    fontSize: 20,
-  },
   headerButtonLabel: {
     color: "#ffffff",
-    fontSize: 12,
+    fontSize: fontSizes["small-12"],
     textAlign: "center",
     flexWrap: "wrap",
     maxWidth: "100%",

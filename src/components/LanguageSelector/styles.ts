@@ -1,7 +1,8 @@
 import { StyleSheet, Dimensions } from "react-native";
+import { fontSizes } from "../../styles/default/fontSizes";
+import { colors } from "../../styles/default/colors";
 
 export const LanguageSelectorStyles = StyleSheet.create({
-  container: {},
   flagContainer: {
     alignItems: "center",
     justifyContent: "space-between",
@@ -12,23 +13,23 @@ export const LanguageSelectorStyles = StyleSheet.create({
     borderRadius: 5,
   },
   label: {
-    color: "#ffffff",
-    fontSize: 12,
+    color: colors.white,
+    fontSize: fontSizes["small-12"],
     textAlign: "center",
   },
   modalOverlay: {
     flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    backgroundColor: colors["modal-overlay"],
     justifyContent: "center",
     alignItems: "center",
   },
   modalContent: {
-    backgroundColor: "rgba(255, 255, 255, 0.95)",
+    backgroundColor: colors["white-200"],
     borderRadius: 20,
     padding: 20,
     width: Dimensions.get("window").width * 0.8,
     maxWidth: 400,
-    shadowColor: "#000",
+    shadowColor: colors.black,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -46,8 +47,8 @@ export const LanguageSelectorStyles = StyleSheet.create({
   flagButton: {
     padding: 10,
     borderRadius: 10,
-    backgroundColor: "rgba(255, 255, 255, 0.8)",
-    shadowColor: "#000",
+    backgroundColor: colors["white-200"],
+    shadowColor: colors.black,
     shadowOffset: {
       width: 0,
       height: 1,
@@ -58,6 +59,6 @@ export const LanguageSelectorStyles = StyleSheet.create({
   },
   modalFlag: {
     borderRadius: 5,
-    color: "rgba(255, 255, 255, 0.2)",
+    color: colors["gray-500"],
   },
 });

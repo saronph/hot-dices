@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import { View, Text, TouchableOpacity, Animated, Easing } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
 import { useTranslation } from "react-i18next";
-import { FontAwesome6, Feather, Ionicons } from "@expo/vector-icons";
+import { FontAwesome6 } from "@expo/vector-icons";
 
 import { DiceGameStyles as styles } from "./styles";
 import { Header } from "../../components/Header";
+import { HeaderButton } from "../../components/HeaderButton";
+import { colors } from "../../styles/default/colors";
 
 const DiceGame = () => {
   const { t, i18n } = useTranslation();
@@ -187,23 +188,18 @@ const DiceGame = () => {
   }, [i18n.language]);
 
   return (
-    <LinearGradient
-      colors={["#1a0000", "#330000", "#1a0000"]}
-      style={styles.container}
-    >
+    <View style={styles.container}>
       <Header>
-        <TouchableOpacity onPress={toggleNoRepeat} style={styles.headerButton}>
-          <View style={styles.headerButtonContent}>
-            <FontAwesome6
-              name={noRepeat ? "toggle-on" : "toggle-off"}
-              size={24}
-              color={noRepeat ? "#ff0000" : "rgba(255, 255, 255, 0.2)"}
-            />
-            <Text style={styles.headerButtonLabel}>
-              {noRepeat ? t("noRepeat") : t("repeat")}
-            </Text>
-          </View>
-        </TouchableOpacity>
+        <HeaderButton onPress={toggleNoRepeat}>
+          <FontAwesome6
+            name={noRepeat ? "toggle-on" : "toggle-off"}
+            size={24}
+            color={noRepeat ? colors["red-600"] : colors["gray-500"]}
+          />
+          <Text style={styles.headerButtonLabel}>
+            {noRepeat ? t("noRepeat") : t("repeat")}
+          </Text>
+        </HeaderButton>
       </Header>
 
       <View style={styles.diceContainer}>
@@ -220,14 +216,7 @@ const DiceGame = () => {
               },
             ]}
           >
-            <LinearGradient
-              colors={["#ffffff", "#fff0f0"]}
-              style={styles.diceFace}
-            >
-              <Text style={styles.diceText}>
-                {isRolling ? "?" : currentTask}
-              </Text>
-            </LinearGradient>
+            <Text style={styles.diceText}>{isRolling ? "?" : currentTask}</Text>
           </Animated.View>
 
           <Animated.View
@@ -242,35 +231,23 @@ const DiceGame = () => {
               },
             ]}
           >
-            <LinearGradient
-              colors={["#ffffff", "#fff0f0"]}
-              style={styles.diceFace}
-            >
-              <Text style={styles.diceText}>
-                {isRolling ? "?" : currentLocal}
-              </Text>
-            </LinearGradient>
+            <Text style={styles.diceText}>
+              {isRolling ? "?" : currentLocal}
+            </Text>
           </Animated.View>
         </View>
 
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            style={[styles.button, isRolling && styles.buttonDisabled]}
-            onPress={handleRoll}
-            disabled={isRolling}
-          >
-            <LinearGradient
-              colors={["#ff0000", "#cc0000"]}
-              style={styles.buttonGradient}
-            >
-              <Text style={styles.buttonText}>
-                {isRolling ? t("rolling") : t("roll")}
-              </Text>
-            </LinearGradient>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          style={[styles.button, isRolling && styles.buttonDisabled]}
+          onPress={handleRoll}
+          disabled={isRolling}
+        >
+          <Text style={styles.buttonText}>
+            {isRolling ? t("rolling") : t("roll")}
+          </Text>
+        </TouchableOpacity>
       </View>
-    </LinearGradient>
+    </View>
   );
 };
 

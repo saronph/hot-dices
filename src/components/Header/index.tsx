@@ -9,6 +9,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTranslation } from "react-i18next";
 import { useNavigation } from "@react-navigation/native";
 import LanguageSelector from "../LanguageSelector";
+import { HeaderButton } from "../HeaderButton";
+import { colors } from "../../styles/default/colors";
 
 interface HeaderProps {
   children: React.ReactNode;
@@ -86,36 +88,22 @@ export const Header = ({ children }: HeaderProps) => {
         onPress={() => navigation.goBack()}
         style={styles.headerBackButton}
       >
-        <Ionicons
-          name="arrow-back"
-          size={24}
-          color="rgba(255, 255, 255, 0.2)"
-        />
+        <Ionicons name="arrow-back" size={24} color={colors["gray-500"]} />
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={handleShare} style={styles.headerButton}>
-        <View style={styles.headerButtonContent}>
-          <Feather name="share-2" size={24} color="rgba(255, 255, 255, 0.2)" />
-          <Text style={styles.headerButtonLabel}>{t("shareApp")}</Text>
-        </View>
-      </TouchableOpacity>
+      <HeaderButton onPress={handleShare}>
+        <Feather name="share-2" size={24} color={colors["gray-500"]} />
+        <Text style={styles.headerButtonLabel}>{t("shareApp")}</Text>
+      </HeaderButton>
 
-      <TouchableOpacity onPress={handleRate} style={styles.headerButton}>
-        <View style={styles.headerButtonContent}>
-          <FontAwesome6
-            name="star"
-            size={24}
-            color="rgba(255, 255, 255, 0.2)"
-          />
-          <Text style={styles.headerButtonLabel}>{t("rateApp")}</Text>
-        </View>
-      </TouchableOpacity>
+      <HeaderButton onPress={handleRate}>
+        <FontAwesome6 name="star" size={24} color={colors["gray-500"]} />
+        <Text style={styles.headerButtonLabel}>{t("rateApp")}</Text>
+      </HeaderButton>
 
-      <TouchableOpacity onPress={handleRate} style={styles.headerButton}>
-        <View style={styles.headerButtonContent}>
-          <LanguageSelector />
-        </View>
-      </TouchableOpacity>
+      <HeaderButton onPress={() => {}}>
+        <LanguageSelector />
+      </HeaderButton>
 
       {children}
     </View>
