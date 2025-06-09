@@ -1,16 +1,17 @@
 import { StyleSheet, Dimensions } from "react-native";
 import { fontSizes } from "../../styles/default/fontSizes";
 import { colors } from "../../styles/default/colors";
+import { moderateScale } from "react-native-size-matters";
 
 export const LanguageSelectorStyles = StyleSheet.create({
   flagContainer: {
     alignItems: "center",
     justifyContent: "space-between",
     width: "100%",
-    height: 44,
+    height: moderateScale(44),
   },
   flag: {
-    borderRadius: 5,
+    borderRadius: moderateScale(5),
   },
   label: {
     color: colors.white,
@@ -25,10 +26,10 @@ export const LanguageSelectorStyles = StyleSheet.create({
   },
   modalContent: {
     backgroundColor: colors["white-200"],
-    borderRadius: 20,
-    padding: 20,
+    borderRadius: moderateScale(20),
+    padding: moderateScale(20),
     width: Dimensions.get("window").width * 0.8,
-    maxWidth: 400,
+    maxWidth: moderateScale(400),
     shadowColor: colors.black,
     shadowOffset: {
       width: 0,
@@ -42,11 +43,11 @@ export const LanguageSelectorStyles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center",
-    gap: 15,
+    gap: moderateScale(16),
   },
   flagButton: {
-    padding: 10,
-    borderRadius: 10,
+    padding: moderateScale(10),
+    borderRadius: moderateScale(10),
     backgroundColor: colors["white-200"],
     shadowColor: colors.black,
     shadowOffset: {
@@ -58,7 +59,7 @@ export const LanguageSelectorStyles = StyleSheet.create({
     elevation: 2,
   },
   modalFlag: {
-    borderRadius: 5,
+    borderRadius: moderateScale(5),
     color: colors["gray-500"],
   },
 });

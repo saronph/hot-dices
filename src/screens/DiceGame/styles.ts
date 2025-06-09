@@ -1,6 +1,7 @@
 import { StyleSheet, Dimensions } from "react-native";
 import { colors } from "../../styles/default/colors";
 import { fontSizes } from "../../styles/default/fontSizes";
+import { moderateScale } from "react-native-size-matters";
 
 const { height } = Dimensions.get("window");
 
@@ -21,45 +22,45 @@ export const DiceGameStyles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     width: "100%",
-    gap: height * 0.05,
-    paddingTop: height * 0.15,
+    gap: moderateScale(24),
+    paddingTop: moderateScale(80),
   },
   diceAlign: {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    gap: 40,
+    gap: moderateScale(40),
   },
   dice: {
     borderWidth: 2,
     borderColor: colors["red-600"],
     backgroundColor: colors["white-200"],
-    borderRadius: 20,
+    borderRadius: moderateScale(20),
     elevation: 8,
-    height: 120,
+    height: moderateScale(120),
     justifyContent: "center",
     alignItems: "center",
     shadowOpacity: 0.3,
     shadowRadius: 4.65,
-    padding: 8,
-    width: 120,
+    padding: moderateScale(8),
+    width: moderateScale(120),
   },
   diceText: {
     fontSize: fontSizes["medium-16"],
     fontWeight: "bold",
     color: colors["red-600"],
     textAlign: "center",
-    lineHeight: 20,
+    lineHeight: moderateScale(20),
     width: "100%",
   },
   button: {
-    borderRadius: 25,
+    borderRadius: moderateScale(25),
     elevation: 5,
     borderWidth: 2,
     borderColor: colors.white,
-    width: 200,
-    paddingHorizontal: 40,
-    paddingVertical: 15,
+    width: moderateScale(200),
+    paddingHorizontal: moderateScale(40),
+    paddingVertical: moderateScale(15),
     backgroundColor: colors["red-500"],
   },
   buttonDisabled: {

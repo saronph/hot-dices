@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { moderateScale } from "react-native-size-matters";
 
 export const styles = StyleSheet.create({
   headerButton: {
@@ -6,12 +7,12 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "transparent",
-    height: 60,
+    height: moderateScale(60),
   },
   headerButtonContent: {
     alignItems: "center",
     justifyContent: "space-between",
     width: "100%",
-    height: 44,
+    height: moderateScale(44),
   },
 });
