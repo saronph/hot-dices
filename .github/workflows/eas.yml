@@ -2,8 +2,8 @@ name: EAS Build
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - "*"
 
 jobs:
   build:
