@@ -61,12 +61,9 @@ export const Header = ({ children }: HeaderProps) => {
         await Linking.openURL(PLAY_STORE_URL);
       }
     } catch (error) {
-      // Handle review request error silently
       try {
         await Linking.openURL(PLAY_STORE_URL);
-      } catch (fallbackError) {
-        // Handle store opening error silently
-      }
+      } catch (fallbackError) {}
     }
   };
 
@@ -76,9 +73,7 @@ export const Header = ({ children }: HeaderProps) => {
         message: `${t("shareAppMessage")}\n${PLAY_STORE_URL_SHORT}`,
         title: t("shareApp"),
       });
-    } catch (error) {
-      // Handle sharing error silently
-    }
+    } catch (error) {}
   };
 
   return (

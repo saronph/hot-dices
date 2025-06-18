@@ -31,7 +31,6 @@ A React Native mobile app that provides an engaging dice-based interactive exper
 
 - **Expo Sharing** - App sharing functionality
 - **Expo Store Review** - App rating integration
-- **Expo Clipboard** - Copy functionality
 - **Google Mobile Ads** - Ad integration
 
 ## 🎯 App Features
@@ -92,7 +91,7 @@ src/
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/hot-dices.git
+git clone https://github.com/saronph/hot-dices.git
 
 # Install dependencies
 npm install
@@ -105,10 +104,10 @@ npm start
 
 ```bash
 # Build for iOS
-expo run:ios
+npx expo run:ios
 
 # Build for Android
-expo run:android
+npx expo run:android
 ```
 
 ## 🎨 Key Features
@@ -135,7 +134,3 @@ expo run:android
 ## 📄 License
 
 MIT License
-
----
-
-**Note**: This project demonstrates React Native development skills, internationalization implementation, and modern mobile app architecture.

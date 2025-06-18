@@ -1,0 +1,1 @@
+export { useDiceGame } from "./useDiceGame";

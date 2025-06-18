@@ -8,10 +8,6 @@ import {
 const LAST_AD_SHOWN_KEY = "@hot_dices:last_ad_shown";
 const THREE_HOURS_IN_MS = 3 * 60 * 60 * 1000;
 
-// const adUnitId = __DEV__
-//   ? TestIds.INTERSTITIAL
-//   : "ca-app-pub-3940256099942544/1033173712"; // Replace with your production ad unit ID
-
 const adUnitId = TestIds.INTERSTITIAL;
 
 const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
