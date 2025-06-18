@@ -74,6 +74,9 @@ src/
 │   ├── AdsBanner/      # Advertisement component
 │   └── LanguageSelector/ # Language selection
 ├── constants/          # App constants and translations
+├── hooks/              # Custom React hooks
+│   ├── index.ts        # Hooks exports
+│   └── useDiceGame.tsx # Dice game logic hook
 ├── navigation/         # Navigation setup
 ├── providers/          # Context providers
 ├── screens/            # App screens
