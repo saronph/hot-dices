@@ -1,7 +1,7 @@
+import React, { useEffect } from "react";
 import { AppProviders } from "./src/providers/AppProviders";
 import { Navigation } from "./src/navigation";
 import { AdsBanner } from "./src/components/AdsBanner";
-import { useEffect } from "react";
 import mobileAds, { MaxAdContentRating } from "react-native-google-mobile-ads";
 
 export default function App() {
@@ -15,10 +15,7 @@ export default function App() {
         });
 
         await mobileAds().initialize();
-        console.log("Mobile Ads SDK initialized successfully");
-      } catch (error) {
-        console.error("Failed to initialize Mobile Ads SDK:", error);
-      }
+      } catch (error) {}
     };
 
     initializeAds();

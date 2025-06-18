@@ -29,7 +29,6 @@ export const Header = ({ children }: HeaderProps) => {
       await AsyncStorage.setItem(REVIEW_ATTEMPTS_KEY, newAttempts);
       return parseInt(newAttempts);
     } catch (error) {
-      console.error("Erro ao incrementar tentativas:", error);
       return 0;
     }
   };
@@ -62,11 +61,11 @@ export const Header = ({ children }: HeaderProps) => {
         await Linking.openURL(PLAY_STORE_URL);
       }
     } catch (error) {
-      console.error("Erro detalhado ao solicitar review:", error);
+      // Handle review request error silently
       try {
         await Linking.openURL(PLAY_STORE_URL);
       } catch (fallbackError) {
-        console.error("Erro detalhado ao abrir loja:", fallbackError);
+        // Handle store opening error silently
       }
     }
   };
@@ -78,7 +77,7 @@ export const Header = ({ children }: HeaderProps) => {
         title: t("shareApp"),
       });
     } catch (error) {
-      console.error("Error sharing:", error);
+      // Handle sharing error silently
     }
   };
 

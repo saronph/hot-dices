@@ -61,7 +61,6 @@ export const showInterstitialAd = async (): Promise<boolean> => {
       interstitial.load();
     });
   } catch (error) {
-    console.error("Error showing interstitial ad:", error);
     return false;
   }
 };
