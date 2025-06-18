@@ -63,8 +63,8 @@ A React Native mobile app that provides an engaging dice-based interactive exper
 
 ## 📱 Screens
 
-- **Dashboard** - Main game interface with dice
-- **Settings** - Language selection and app options
+- **Dashboard** - Initial screen for game selection
+- **DiceGame** - Main game interface with dice
 
 ## 🛠️ Project Structure
 
