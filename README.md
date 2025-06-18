@@ -33,6 +33,10 @@ A React Native mobile app that provides an engaging dice-based interactive exper
 - **Expo Store Review** - App rating integration
 - **Google Mobile Ads** - Ad integration
 
+### Infra
+
+- **CI/CD com GitHub Actions + EAS Build** - This project uses CI/CD via GitHub Actions integrated with Expo Application Services (EAS).
+
 ## 🎯 App Features
 
 ### Core Functionality
